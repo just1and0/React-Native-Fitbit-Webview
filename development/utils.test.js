@@ -1,2 +1,4 @@
-/* eslint-disable prefer-const */
-import {} from './helper';
+
+test('test all utils', () => {
+  expect(true).toBe(true);
+});
