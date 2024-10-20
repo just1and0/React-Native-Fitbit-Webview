@@ -33,7 +33,8 @@ Before you can use this package you'd need to first setup a [Fitbit developer ac
 
 - [Access your keys]()
 ![Alt text](./assests/key.png) 
- Once you create your app, you should be able to view the keys; for this project you'll need `CLIENT_ID`, `REDIRECT_URL `
+
+ Once you create your app, you should be able to view the keys; for this project you'll need `CLIENT_ID`, `CLIENT_SECRET` & `REDIRECT_URL `
  
 
 ### [](https://github.com/just1and0/React-Native-Fitbit-WebView#installation)Installation
@@ -64,6 +65,31 @@ for expo applications run;
 npx expo install react-native-webview
 ```
 That’s it! You’re all set.
+## [](https://github.com/just1and0/React-Native-fitbit-WebView#setup)Setup
+Before you make use of the Hook, you'd need to setup your project to use the package, to do so;
+
+```javascript
+import React, { useEffect, useState } from 'react'; 
+import MainNavigator from './src/navigation/MainNavigator'; 
+import { FitbitProvider } from 'react-native-fitbit-webview'
+
+function App(): React.JSX.Element { 
+  return (
+    <FitbitProvider 
+     configs={{
+        CLIENT_ID: '<your client_id here>',
+        CLIENT_SECRET: '<your client_secret here>',
+        FITBIT_MODAL_CONTROLS: {
+            // set the color theme for the fitbit modal
+          themeColor: colors.backgroundColor
+        }
+      }}> 
+            <MainNavigator /> 
+      </FitbitProvider> 
+  );
+}
+export default App;
+```
 
 ## [](https://github.com/just1and0/React-Native-fitbit-WebView#usage)Usage
 
@@ -143,8 +169,6 @@ function ViewUserVitals() {
 | `fitBitSleep`                        |                                      Object representing the user’s sleep analysis data fetched from the Fitbit API                                                                  |                                                     `nill` |
 
 ---
- 
- 
 
 ## [](https://github.com/just1and0/react-native-fitbit-webview#contributions)Contributions
 
